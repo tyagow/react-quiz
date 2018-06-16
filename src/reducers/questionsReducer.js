@@ -3,7 +3,8 @@ import {
   QUESTION_ANSWER_DOWN,
   QUESTION_ANSWER_UP,
   UPDATE_QUESTION_CORRECT_ANSWER,
-  SAVE_QUESTION
+  SAVE_QUESTION,
+  LOAD_QUESTION
 } from "../actions/questionsActions";
 import { swapLeft, swapRight } from "../utils";
 
@@ -17,11 +18,16 @@ export default (state = initialState, action) => {
       let question = { ...state.item, correctAnswer: action.payload };
       return { ...state, item: question };
     }
+    case LOAD_QUESTION: {
+      const id = action.payload;
+      let question = state.items.find(item => item.id === id);
+
+      return { ...state, item: question };
+    }
+
     case SAVE_QUESTION: {
       let question = state.item;
       let questions = state.items.filter(item => item.id !== question.id);
-      console.log(question);
-      console.log(questions);
       return { ...state, items: [...questions, question] };
     }
     case QUESTION_ANSWER_UP: {

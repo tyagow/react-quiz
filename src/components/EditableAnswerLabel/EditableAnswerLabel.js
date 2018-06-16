@@ -72,6 +72,7 @@ export class EditableAnswerLabel extends React.Component {
                     name="title"
                     onChange={this.onChange}
                     id="answerTitle"
+                    value={this.props.title}
                     placeholder="type your answer here"
                   />
                 </Col>

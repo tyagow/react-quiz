@@ -7,7 +7,8 @@ import {
   answerUpOrder,
   answerDownOrder,
   markAnswerAsCorrect,
-  saveQuestion
+  saveQuestion,
+  loadQuestion
 } from "../../actions/questionsActions";
 import {
   updateAnswer,
@@ -21,8 +22,14 @@ import CreateQuestion from "../../components/CreateQuestion/CreateQuestion";
 
 export class NewQuestionScreen extends React.Component {
   componentDidMount = () => {
-    const question = { title: "", answers: [], correctAnswer: [] };
-    this.props.updateQuestion(question);
+    const { id } = this.props.match.params;
+    const isEditing = id !== "new";
+    if (isEditing) {
+      this.props.loadQuestion(id);
+    } else {
+      const question = { title: "", answers: [], correctAnswer: [] };
+      this.props.updateQuestion(question);
+    }
   };
   addNewAnswer = e => {
     e.preventDefault();
@@ -102,7 +109,8 @@ const mapDispatchToProps = dispatch => ({
   answerUpOrder: id => dispatch(answerUpOrder(id)),
   answerDownOrder: id => dispatch(answerDownOrder(id)),
   markAnswerAsCorrect: id => dispatch(markAnswerAsCorrect(id)),
-  saveQuestion: () => dispatch(saveQuestion())
+  saveQuestion: () => dispatch(saveQuestion()),
+  loadQuestion: id => dispatch(loadQuestion(id))
 });
 
 export default connect(

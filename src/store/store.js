@@ -1,18 +1,28 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import createHistory from "history/createBrowserHistory";
+import { routerMiddleware } from "react-router-redux";
 
 // import api from "../middlewares/api";
 import rootReducer from "../reducers/index";
 import idInjector from "../middlewares/idInjector";
 import answerInjector from "../middlewares/answerInjector";
 import answerDelete from "../middlewares/answerDelete";
+import questionLoaderValidation from "../middlewares/questionAuth";
 
 const initialState = {};
 export const history = createHistory();
-const middleware = [thunk, idInjector, answerInjector, answerDelete];
+const rmiddleware = routerMiddleware(history);
+const middleware = [
+  rmiddleware,
+  thunk,
+  questionLoaderValidation,
+  idInjector,
+  answerInjector,
+  answerDelete
+];
 
-const store = createStore(
+export const store = createStore(
   rootReducer,
   initialState,
   compose(

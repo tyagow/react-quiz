@@ -25,7 +25,7 @@ export default class CreateQuestion extends Component {
               type="text"
               name="title"
               onChange={this.onChange}
-              value={this.props.title}
+              value={this.props.question.title}
               id="questionTitle"
               placeholder="type your question here"
             />
