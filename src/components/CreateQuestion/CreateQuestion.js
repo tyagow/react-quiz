@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Form, FormGroup, Label, Input, Row } from "reactstrap";
+import { Form, FormGroup, Label, Input, Col } from "reactstrap";
 
 export default class CreateQuestion extends Component {
   onChange = e => {
@@ -15,10 +15,12 @@ export default class CreateQuestion extends Component {
   };
   render() {
     return (
-      <Row>
-        <Form className="mt-4">
-          <FormGroup>
-            <Label for="questionTitle">Question Title</Label>
+      <Form className="mt-4">
+        <FormGroup row>
+          <Label sm={2} for="questionTitle">
+            Question Title
+          </Label>
+          <Col sm={8}>
             <Input
               type="text"
               name="title"
@@ -27,9 +29,9 @@ export default class CreateQuestion extends Component {
               id="questionTitle"
               placeholder="type your question here"
             />
-          </FormGroup>
-        </Form>
-      </Row>
+          </Col>
+        </FormGroup>
+      </Form>
     );
   }
 }

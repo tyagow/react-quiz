@@ -6,10 +6,11 @@ import createHistory from "history/createBrowserHistory";
 import rootReducer from "../reducers/index";
 import idInjector from "../middlewares/idInjector";
 import answerInjector from "../middlewares/answerInjector";
+import answerDelete from "../middlewares/answerDelete";
 
 const initialState = {};
 export const history = createHistory();
-const middleware = [thunk, idInjector, answerInjector];
+const middleware = [thunk, idInjector, answerInjector, answerDelete];
 
 const store = createStore(
   rootReducer,

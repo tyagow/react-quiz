@@ -1,8 +1,12 @@
-export const selectQuestionCreate = state => state.questionCreator.item;
+export const selectQuestionCreate = state => state.questions.item;
+export const selectQuestions = state => state.questions.items;
+
 export const selectAnwsers = state => {
   const question = selectQuestionCreate(state);
-  const answers = state.answers.items.filter(
-    answer => answer.questionId === question.id
-  );
+  const answers = question.answers
+    ? question.answers.map(id => {
+        return state.answers.items.find(answer => answer.id === id);
+      })
+    : [];
   return answers;
 };

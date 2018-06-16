@@ -6,3 +6,39 @@ export const generateId = () => {
   };
   return s4() + s4();
 };
+
+export const swapLeft = (elements, id) => {
+  let index = elements.indexOf(id);
+  console.log(elements);
+  console.log(index);
+  if (index > 0) {
+    const targetElement = elements[index - 1];
+    return elements.map(element => {
+      if (element === targetElement) {
+        return elements[index];
+      } else if (element === elements[index]) {
+        return targetElement;
+      }
+      return element;
+    });
+  } else {
+    return elements;
+  }
+};
+
+export const swapRight = (elements, id) => {
+  let index = elements.indexOf(id);
+  if (0 <= index && index < elements.length - 1) {
+    const targetElement = elements[index + 1];
+    return elements.map(element => {
+      if (element === targetElement) {
+        return elements[index];
+      } else if (element === elements[index]) {
+        return targetElement;
+      }
+      return element;
+    });
+  } else {
+    return elements;
+  }
+};

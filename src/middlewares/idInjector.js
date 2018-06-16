@@ -1,10 +1,10 @@
 import { UPDATE_QUESTION } from "../actions/questionsActions";
 import { generateId } from "../utils";
-import { UPDATE_ANSWER } from "../actions/answerActions";
+import { NEW_ANSWER } from "../actions/answerActions";
 
 const idInjector = ({ dispatch, getState }) => next => action => {
   // Should inject an id if an object dont have it
-  if (action.type !== UPDATE_QUESTION && action.type !== UPDATE_ANSWER) {
+  if (action.type !== UPDATE_QUESTION && action.type !== NEW_ANSWER) {
     return next(action);
   }
   // Check if question has an id and inject one if it dosen't
