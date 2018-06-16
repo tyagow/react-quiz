@@ -1,5 +1,7 @@
-export const CREATE_QUESTION = "CREATE_QUESTION";
-export const createQuestion = question => ({
-  type: CREATE_QUESTION,
-  payload: question
-});
+export const UPDATE_QUESTION = "UPDATE_QUESTION";
+export const updateQuestion = question => dispatch => {
+  dispatch({
+    type: UPDATE_QUESTION,
+    payload: question
+  });
+};
