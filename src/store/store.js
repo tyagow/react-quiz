@@ -4,10 +4,11 @@ import createHistory from "history/createBrowserHistory";
 
 import api from "../middlewares/api";
 import rootReducer from "../reducers/index";
+import questionCreator from "../middlewares/questionCreator";
 
 const initialState = {};
 export const history = createHistory();
-const middleware = [thunk];
+const middleware = [thunk, questionCreator];
 
 const store = createStore(
   rootReducer,
