@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Container, ListGroup, ListGroupItem } from "reactstrap";
 import { push } from "react-router-redux";
+import { Button, Col, Row } from "reactstrap";
 
 import { selectQuestions } from "../../selectors";
 
@@ -17,7 +18,22 @@ export class Home extends React.Component {
         <ListGroup>
           {this.props.questions.map(question => (
             <ListGroupItem onClick={this.onClickQuestion(question)}>
-              {question.title}
+              <Row>
+                <Col sm={11}>
+                  <h2> {question.title} </h2>
+                </Col>
+                <Col sm={1}>
+                  <Button
+                    size="sm"
+                    className="float-left"
+                    outline
+                    color="primary"
+                  >
+                    edit
+                  </Button>
+                </Col>
+                <Col sm={12}>Answers: {question.answers.length}</Col>
+              </Row>
             </ListGroupItem>
           ))}
         </ListGroup>
