@@ -15,10 +15,10 @@ export default () => {
           <Col sm={12}>
             <Nav className="p-3" navbar>
               <NavItem className="ml-4 mr-4 text-white">
-                <Link to="/">Questions list</Link>
+                <Link to="/react-quiz/">Questions list</Link>
               </NavItem>|
               <NavItem className="ml-4">
-                <Link to="/question/new">New Question</Link>
+                <Link to="/react-quiz/question/new">New Question</Link>
               </NavItem>
             </Nav>
           </Col>
