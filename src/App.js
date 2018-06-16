@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home } from "./container/Home/Home";
-import { Contact } from "./container/Contact/Contact";
+import NewQuestionScreen from "./container/NewQuestionScreen/NewQuestionScreen";
 import { NotFound } from "./container/NotFound/NotFound";
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/question/new" component={NewQuestionScreen} />
           <Route component={NotFound} />
         </Switch>
       </Router>
