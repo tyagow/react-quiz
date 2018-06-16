@@ -7,7 +7,7 @@ import { selectQuestions } from "../../selectors";
 
 export class Home extends React.Component {
   onClickQuestion = question => e => {
-    this.props.goTo(`/question/${question.id}`);
+    this.props.goTo(`/react-quiz/question/${question.id}`);
   };
   render() {
     return (

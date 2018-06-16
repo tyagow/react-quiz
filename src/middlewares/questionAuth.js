@@ -11,7 +11,7 @@ const questionLoaderValidation = ({ dispatch, getState }) => next => action => {
   const id = action.payload;
   if (!getState().questions.items.find(item => item.id === id)) {
     const question = { title: "", answers: [], correctAnswer: [] };
-    dispatch(push("/question/new"));
+    dispatch(push("cquestion/new"));
     return next(updateQuestionAction(question));
   }
   return next(action);
