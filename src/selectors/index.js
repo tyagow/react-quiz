@@ -1,5 +1,5 @@
 export const selectQuestionCreate = state => state.questionCreator.item;
-export const selectAnwser = state => {
+export const selectAnwsers = state => {
   const question = selectQuestionCreate(state);
   const answers = state.answers.items.filter(
     answer => answer.questionId === question.id

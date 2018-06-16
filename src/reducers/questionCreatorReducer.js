@@ -1,6 +1,6 @@
 import { UPDATE_QUESTION } from "../actions/questionsActions";
 
-const initialState = { item: {}, answers: [] };
+const initialState = { item: {} };
 
 export default (state = initialState, action) => {
   switch (action.type) {

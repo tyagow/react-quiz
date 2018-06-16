@@ -2,13 +2,14 @@ import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import createHistory from "history/createBrowserHistory";
 
-import api from "../middlewares/api";
+// import api from "../middlewares/api";
 import rootReducer from "../reducers/index";
-import questionCreator from "../middlewares/questionCreator";
+import idInjector from "../middlewares/idInjector";
+import answerInjector from "../middlewares/answerInjector";
 
 const initialState = {};
 export const history = createHistory();
-const middleware = [thunk, questionCreator];
+const middleware = [thunk, idInjector, answerInjector];
 
 const store = createStore(
   rootReducer,
