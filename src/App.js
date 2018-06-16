@@ -11,8 +11,11 @@ class App extends Component {
       <React.Fragment>
         <NavHeader />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/question/:id" component={NewQuestionScreen} />
+          <Route exact path="/react-quiz/" component={Home} />
+          <Route
+            path="/react-quiz/question/:id"
+            component={NewQuestionScreen}
+          />
           <Route component={NotFound} />
         </Switch>
       </React.Fragment>
